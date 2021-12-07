@@ -1,2 +1,22 @@
-<p>home works!</p>
-<a [routerLink]="'/users'">users</a>
+<div class="home_page_container">
+    <a routerLink='/users'>Users</a>
+
+
+  <div class="cards_container">
+    <app-card
+      icon="question"
+      [title]="titles[0]"
+      [content]="texts[0]"
+    ></app-card>
+    <app-card
+      icon="airplane"
+      [title]="titles[1]"
+      [content]="texts[1]"
+    ></app-card>
+    <app-card
+      icon="baggage"
+      [title]="titles[2]"
+      [content]="texts[2]"
+    ></app-card>
+  </div>
+</div>

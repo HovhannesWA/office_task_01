@@ -7,7 +7,8 @@ export class AuthService{
 
     isAuth(){
         return new Promise((resolve, reject) => {
-            let is_auth = !!this.login_service.auth_user;
+            let is_auth = !!this.login_service.auth_user || sessionStorage.getItem('is_auth');
+            
             if(is_auth){
                 resolve(true)
             }

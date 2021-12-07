@@ -1,6 +1,6 @@
 <div class="registration_page">
   <div class="opacity_shape"></div>
-  <main (input)="formIsValid()">
+  <main (input)="formIsValid()" [ngClass]="{'hidden': hide_component}">
     <div class="inputs_container">
       <label
         >First name
@@ -132,8 +132,10 @@
       </label>
     </div>
 
-    <div class="empty_div"></div>
-    <div id="register_btn" class="register_button" (click)="register()">
+    <div class="back_to_login">
+      <a routerLink="/login">Login</a>
+    </div>
+    <div id="register_btn" class="register_button" (click)="register($event)">
       <span>Register</span>
     </div>
   </main>

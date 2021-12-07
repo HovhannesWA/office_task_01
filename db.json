@@ -1,4 +1,4 @@
-{  
+{
   "users": [
     {
       "id": 1,
@@ -44,6 +44,15 @@
       "age": "18",
       "email": "user5@testmail.com",
       "password": "Admin123*"
-    }    
+    },    
+    {
+      "first_name": "Hovo",
+      "last_name": "K",
+      "email": "hk@mail.ru",
+      "gender": "male",
+      "password": "1234",
+      "comfirm_password": "1234",
+      "id": 21
+    }
   ]
 }

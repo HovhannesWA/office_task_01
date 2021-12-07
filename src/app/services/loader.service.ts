@@ -7,7 +7,7 @@ export class LoaderService {
 
   constructor() { }
 
-  showButtonLoader(el: HTMLElement):void{
+  showButtonLoader(el: HTMLElement):void{    
     el.classList.add('button_loading');
   }
 

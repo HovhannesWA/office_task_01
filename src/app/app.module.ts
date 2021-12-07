@@ -16,6 +16,7 @@ import { AuthService } from './services/auth.service';
 import { AuthGuard } from './guards/auth-guard.service';
 import { AccessDeniedComponent } from './components/access-denied/access-denied.component';
 import { ToastrModule } from 'ngx-toastr';
+import { CardComponent } from './components/card/card.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { ToastrModule } from 'ngx-toastr';
     UsersComponent,
     NotFoundComponent,
     UserComponent,
-    AccessDeniedComponent
+    AccessDeniedComponent,
+    CardComponent    
   ],
   imports: [
     BrowserModule,
