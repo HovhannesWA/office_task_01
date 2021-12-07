@@ -1,0 +1,140 @@
+<div class="registration_page">
+  <div class="opacity_shape"></div>
+  <main (input)="formIsValid()">
+    <div class="inputs_container">
+      <label
+        >First name
+        <input
+          [ngClass]="{ is_invalid: validation_errors.first_name.length }"
+          name="first_name"
+          type="text"
+          [(ngModel)]="registration_data.first_name"
+        />
+        <p
+          *ngIf="validation_errors.first_name.length"
+          class="validation_error_message"
+        >
+          field is required
+        </p>
+      </label>
+    </div>
+    <div class="inputs_container">
+      <label
+        >Last name
+        <input
+          [ngClass]="{ is_invalid: validation_errors.last_name.length }"
+          name="last_name"
+          type="text"
+          [(ngModel)]="registration_data.last_name"
+        />
+        <p
+          *ngIf="validation_errors.last_name.length"
+          class="validation_error_message"
+        >
+          field is required
+        </p>
+      </label>
+    </div>
+    <div class="inputs_container">
+      <label
+        >Email
+        <input
+          name="email"
+          type="text"
+          [(ngModel)]="registration_data.email"
+          [ngClass]="{ is_invalid: validation_errors.email.length }"
+        />
+        <div *ngIf="validation_errors.email.length">
+          <p
+            *ngIf="validation_errors.email.includes('required')"
+            class="validation_error_message"
+          >
+            field is required
+          </p>
+          <p
+            *ngIf="!validation_errors.email.includes('required') && validation_errors.email.includes('email')"
+            class="validation_error_message"
+          >
+            invalid email format
+          </p>
+        </div>
+      </label>
+    </div>
+    <div class="inputs_container radio_buttons_container">
+      <label>Gender</label>
+      <div class="radio_buttons">
+        <label
+          >Male
+          <input
+            class="radio_button"
+            name="gender"
+            type="radio"
+            value="male"
+            [(ngModel)]="registration_data.gender"
+          />
+        </label>
+        <label
+          >Female
+          <input
+            class="radio_button"
+            name="gender"
+            type="radio"
+            value="female"
+            [(ngModel)]="registration_data.gender"
+          />
+        </label>
+      </div>
+    </div>
+    <div class="inputs_container">
+      <label
+        >Password
+        <input
+          [ngClass]="{ is_invalid: validation_errors.password.length }"
+          name="password"
+          type="password"
+          [(ngModel)]="registration_data.password"
+        />
+        <p
+          *ngIf="validation_errors.password.length"
+          class="validation_error_message"
+        >
+          field is required
+        </p>
+      </label>
+    </div>
+    <div class="inputs_container">
+      <label
+        >Confirm Password
+        <input
+          [ngClass]="{ is_invalid: validation_errors.comfirm_password.length }"
+          name="confirm_password"
+          type="password"
+          [(ngModel)]="registration_data.comfirm_password"
+        />
+        <div *ngIf="validation_errors.comfirm_password.length">
+          <p
+            *ngIf="validation_errors.comfirm_password.includes('required')"
+            class="validation_error_message"
+          >
+            field is required
+          </p>
+          <p
+            *ngIf="
+              !validation_errors.comfirm_password.includes('required') &&
+              validation_errors.comfirm_password &&
+              validation_errors.comfirm_password.includes('sameAs')
+            "
+            class="validation_error_message"
+          >
+            Passwords must mutch
+          </p>
+        </div>
+      </label>
+    </div>
+
+    <div class="empty_div"></div>
+    <div id="register_btn" class="register_button" (click)="register()">
+      <span>Register</span>
+    </div>
+  </main>
+</div>

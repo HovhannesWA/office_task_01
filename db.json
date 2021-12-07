@@ -1,0 +1,49 @@
+{  
+  "users": [
+    {
+      "id": 1,
+      "first_name": "Brenna",
+      "last_name": "Pitt",
+      "gender": "female",
+      "age": "28",
+      "email": "user1@testmail.com",
+      "password": "Admin123*"
+    },
+    {
+      "id": 2,
+      "first_name": "Lylah",
+      "last_name": "Mercer",
+      "gender": "female",
+      "age": "24",
+      "email": "user2@testmail.com",
+      "password": "Admin123*"
+    },
+    {
+      "id": 3,
+      "first_name": "Ayman",
+      "last_name": "Morse",
+      "gender": "male",
+      "age": "32",
+      "email": "user3@testmail.com",
+      "password": "Admin123*"
+    },
+    {
+      "id": 4,
+      "first_name": "Mahira",
+      "last_name": "Yu",
+      "gender": "female",
+      "age": "20",
+      "email": "user4@testmail.com",
+      "password": "Admin123*"
+    },
+    {
+      "id": 5,
+      "first_name": "Terri",
+      "last_name": "Owen",
+      "gender": "male",
+      "age": "18",
+      "email": "user5@testmail.com",
+      "password": "Admin123*"
+    }    
+  ]
+}

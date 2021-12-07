@@ -1,0 +1,30 @@
+<div class="users_page_container">
+  <div class="table_header">
+    <div class="col_title">id</div>
+    <div class="col_title">Name</div>
+    <div class="col_title">Last Name</div>
+    <div class="col_title">Gender</div>
+    <div class="col_title">age</div>
+  </div>
+  <div class="table_body">
+    <div class="table_row" *ngFor="let user of users" (click)="selectUser(user.id, user.first_name)">
+      <div class="col_item">
+        {{ user.id }}
+      </div>
+      <div class="col_item">
+        {{ user.first_name }}
+      </div>
+      <div class="col_item">
+        {{ user.last_name }}
+      </div>
+      <div class="col_item">
+        {{ user.gender }}
+      </div>
+      <div class="col_item">
+        {{ user.age }}
+      </div>
+    </div>
+  </div>
+
+  <router-outlet></router-outlet>
+</div>

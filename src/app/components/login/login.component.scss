@@ -1,0 +1,99 @@
+.login_page {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  background-image: url(../../../assets/images/city_background.webp);
+  background-size: cover;
+  justify-content: center;
+
+  .opacity_shape {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: lightblue;    
+    opacity: 0.8;
+  }
+
+  main {
+    height: 400px;
+    padding: 50px 25px;
+    background: #fff;
+    box-shadow: 0px 0px 20px 10px #2b718b;
+    margin-top: 150px;
+    z-index: 10;
+    border: 2px solid #fff;
+    
+
+    .inputs_container {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+
+      input {
+        height: 50px;
+        outline: none;
+        border: 2px solid #2b718b;
+        width: 300px;
+        padding: 0 10px;
+        font-size: 24px;
+        color: #2b718b;
+        background-color: #fff;
+        margin: 0 0 2px 0;
+      }            
+    }
+
+    form.ng-touched.ng-invalid{
+      input.ng-invalid{
+        border: 2px solid var(--validation-error-message);
+      }
+      p.validation_error_message{
+        position: absolute;
+        color: var(--validation-error-message);
+        font-size: 14px;
+      }
+    }
+
+    //checkbox
+    .remember_login {
+      label {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        flex-direction: row-reverse;
+        gap: 5px;
+        cursor: pointer;
+        margin-top: 20px;
+        font-size: 24px;
+        color: #2b718b;
+
+        input {
+          width: 20px;
+          height: 20px;
+        }
+      }
+    }
+
+    .login_button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 24px;
+      background: #01b4a1;
+      height: 50px;
+      margin-top: 25px;
+      cursor: pointer;
+    }
+
+    .not_registred_yet {
+      width: fit-content;
+      margin: 15px 0 0 auto;
+
+      a {
+        color: #2b718b;
+        text-decoration: none;
+        margin-left: 5px;
+      }
+    }
+  }
+}

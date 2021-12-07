@@ -1,1 +1,24 @@
-/* You can add global styles to this file, and also import other style files */
+@import url(./app/sass/variables.style.css);
+@import './app/sass/loader.style.scss';
+/* material */
+@import "../node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css";
+/*toastr*/
+@import '~ngx-toastr/toastr.css';
+
+
+/* material */
+:root {
+    --primary-color: rgb(6, 226, 24);
+    --background-color: #e5e5e5;
+    --text-color: #2d2d2d;
+  }
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* materisl */
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

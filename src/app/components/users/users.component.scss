@@ -1,0 +1,29 @@
+.users_page_container {
+  background-color: #a8dab5;
+  height: 100vh;
+  padding: 100px;
+  .table_header,
+  .table_row {
+    display: grid;    
+    background-color: #252f2f;    
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    justify-content: center;
+    margin: 0 auto;
+    cursor: pointer;
+    .col_title, .col_item {
+      border: 1px solid #fff;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      font-weight: 700;
+      height: 50px;
+      min-width: 150px;
+    }
+  }
+
+  .table_row {
+    background-color: var(--main-blue);
+  }
+}

@@ -1,0 +1,15 @@
+.not_found_page {
+  background: #fff;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  h1{
+    font-size: 30em;
+    color: var(--validation-error-message);
+    @media (max-width: 1200px) {
+      font-size: 15em;
+    }
+  }
+}

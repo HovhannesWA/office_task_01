@@ -1,0 +1,52 @@
+<div class="login_page">
+  <div class="opacity_shape"></div>
+  <main>
+    <form [formGroup]="form">
+      <div class="inputs_container">
+        <div class="email">
+          <input
+            formControlName="email"
+            name="email"
+            type="text"
+            placeholder="email"
+          />
+          <div *ngIf="form.touched && form.controls['email'] && form.controls['email'].errors">
+            <p *ngIf="form.controls['email'].errors['required']" class="validation_error_message">
+              field is required
+            </p>
+            <p *ngIf="form.controls['email'].errors['email']" class="validation_error_message">invalid email format</p>
+          </div>
+        </div>
+        <div class="password">
+          <input
+            formControlName="password"
+            name="passsword"
+            type="password"
+            placeholder="password"
+          />
+          <div *ngIf="form.touched && form.controls['password'] && form.controls['password'].errors">
+            <p *ngIf="form.controls['password'].errors['required']" class="validation_error_message">field is required</p>
+          </div>          
+        </div>
+      </div>
+
+      <div class="remember_login">
+        <label
+          >remember me
+          <input
+            name="remeber_me_checkbox"
+            formControlName="remeber_me_checkbox"
+            type="checkbox"
+          />
+        </label>
+      </div>
+    </form>
+    <div id="login_btn" class="login_button" (click)="login($event)">
+      <span>Login</span>
+    </div>
+    <div class="not_registred_yet">
+      <span>not registred yet?</span>
+      <a routerLink="/registration">Register</a>
+    </div>
+  </main>
+</div>
