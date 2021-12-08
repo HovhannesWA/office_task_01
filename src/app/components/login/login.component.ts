@@ -55,7 +55,7 @@ export class LoginComponent implements OnInit {
           this.router.navigate(['/home'])
           this.loader_service.hideButtonLoader();
         })
-        .catch((err) => {
+        .catch((err:any) => {
           console.log(err);
           this.loader_service.hideButtonLoader();
         });
