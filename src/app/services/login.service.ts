@@ -23,16 +23,19 @@ export class LoginService {
     return new Promise((resolve, reject) => {
       this.httpClient.get('http://localhost:3000/users')
       .pipe(delay(1500))
-      .subscribe(data => {
-        // *******************************************************
-        let logined_user = this.checkUser(data, email, password)
-        // *******************************************************
-        if(logined_user){                     
-          resolve(this.auth_user)
-        }
-        else{
-          reject('dont find')
-        }
+      .subscribe({
+        next: data => {        
+          // *******************************************************
+          let logined_user = this.checkUser(data, email, password)
+          // *******************************************************
+          if(logined_user){                     
+            resolve(this.auth_user)
+          }
+          else{
+            reject('dont find')
+          }
+        },
+        error: err => reject(err)
       })
     })
   }

@@ -85,9 +85,16 @@
       margin-top: 25px;
       cursor: pointer;
     }
+
+    .back_to_login {
+      a {
+        color: #2b718b;
+        text-decoration: none;
+      }
+    }
   }
 
-  main.hidden{
+  main.hidden {
     opacity: 0;
   }
 }
