@@ -27,4 +27,5 @@
   </div>
 
   <router-outlet></router-outlet>
+  <app-table *ngIf="users && users.length" [users]="users"></app-table>
 </div>

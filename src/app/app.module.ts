@@ -17,6 +17,12 @@ import { AuthGuard } from './guards/auth-guard.service';
 import { AccessDeniedComponent } from './components/access-denied/access-denied.component';
 import { ToastrModule } from 'ngx-toastr';
 import { CardComponent } from './components/card/card.component';
+import { MatSliderModule } from '@angular/material/slider';
+import { TABLEComponent } from './components/table/table.component';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+
 
 @NgModule({
   declarations: [
@@ -28,7 +34,8 @@ import { CardComponent } from './components/card/card.component';
     NotFoundComponent,
     UserComponent,
     AccessDeniedComponent,
-    CardComponent    
+    CardComponent,
+    TABLEComponent    
   ],
   imports: [
     BrowserModule,
@@ -37,7 +44,11 @@ import { CardComponent } from './components/card/card.component';
     ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    MatSliderModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule
   ],
   providers: [AuthService, AuthGuard],
   bootstrap: [AppComponent]

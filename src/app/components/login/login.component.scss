@@ -42,7 +42,7 @@
       }            
     }
 
-    form.ng-touched.ng-invalid{
+    form.touched{
       input.ng-invalid{
         border: 2px solid var(--validation-error-message);
       }

@@ -1,10 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {
-  AbstractControl,
-  FormControl,
-  FormGroup,
-  Validators,
-} from '@angular/forms';
+import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { LoaderService } from 'src/app/services/loader.service';
@@ -20,6 +15,7 @@ export class LoginComponent implements OnInit {
   email: AbstractControl | null = this.form.get('email');
   password: AbstractControl | null = this.form.get('password');
   remember_me: boolean = false;
+  touched: boolean = false;
 
   constructor(
     private login_service: LoginService,
@@ -37,6 +33,7 @@ export class LoginComponent implements OnInit {
   }
 
   async login(event: { currentTarget: any }) {
+    this.touched = true;
     this.form.markAsTouched();
     this.loader_service.showButtonLoader(event.currentTarget);
     let form_is_valid = this.checkFormValidation();
