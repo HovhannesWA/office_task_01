@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, Input, SimpleChange, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, Input, Output, SimpleChange, ViewChild, EventEmitter } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTable } from '@angular/material/table';
@@ -7,7 +7,7 @@ import { TABLEDataSource, TABLEItem } from './table-datasource';
 @Component({
   selector: 'app-table',
   templateUrl: './table.component.html',
-  styleUrls: ['./table.component.css'],
+  styleUrls: ['./table.component.scss'],
 })
 export class TABLEComponent implements AfterViewInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -16,12 +16,13 @@ export class TABLEComponent implements AfterViewInit {
   dataSource: TABLEDataSource;
 
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
-  displayedColumns = ['id', 'first_name', 'last_name', 'email', 'gender', 'age'];
+  displayedColumns = ['id', 'first_name', 'last_name', 'email', 'gender', 'age', 'actions'];
 
   constructor() {
     this.dataSource = new TABLEDataSource();
   }
   @Input() users: any = [];
+  @Output() showUserDetails = new EventEmitter<{}>()
 
   ngAfterViewInit(): void {
     this.dataSource.sort = this.sort;
@@ -34,5 +35,9 @@ export class TABLEComponent implements AfterViewInit {
     
     this.dataSource.data = this.users;
     // this.table.renderRows();
+  }
+
+  selectUser(id: number, name: string){    
+    this.showUserDetails.emit({id,name})
   }
 }

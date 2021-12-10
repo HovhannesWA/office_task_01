@@ -42,13 +42,13 @@ export class UsersComponent implements OnInit {
     .subscribe(x => console.log(x))
   }
 
-  selectUser(id: number, name: string){
-    if(this.selected_user_id === id){
+  selectUser(data: any){    
+    if(this.selected_user_id === data.id){
       this.router.navigate(['users'])
     }
     else{
-      this.router.navigate(['users', id, name]);
-      this.selected_user_id = id;
+      this.router.navigate(['users', data.id, data.name]);
+      this.selected_user_id = data.id;
     }
   }
 }

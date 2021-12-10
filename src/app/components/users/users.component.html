@@ -1,5 +1,5 @@
 <div class="users_page_container">
-  <div class="table_header">
+  <!-- <div class="table_header">
     <div class="col_title">id</div>
     <div class="col_title">Name</div>
     <div class="col_title">Last Name</div>
@@ -24,8 +24,9 @@
         {{ user.age }}
       </div>
     </div>
-  </div>
+  </div> -->
 
+  
+  <app-table *ngIf="users && users.length" [users]="users" (showUserDetails)="selectUser($event)"></app-table>
   <router-outlet></router-outlet>
-  <app-table *ngIf="users && users.length" [users]="users"></app-table>
 </div>
