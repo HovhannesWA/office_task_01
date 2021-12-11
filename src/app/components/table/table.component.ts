@@ -23,6 +23,7 @@ export class TABLEComponent implements AfterViewInit {
   }
   @Input() users: any = [];
   @Output() showUserDetails = new EventEmitter<{}>()
+  @Output() onDeleteUser = new EventEmitter<number>()
 
   ngAfterViewInit(): void {
     this.dataSource.sort = this.sort;
@@ -31,13 +32,14 @@ export class TABLEComponent implements AfterViewInit {
   }
 
   ngOnChanges(changes: SimpleChange) {
-    console.log(changes);
-    
-    this.dataSource.data = this.users;
-    // this.table.renderRows();
+    this.dataSource.data = this.users; 
   }
 
   selectUser(id: number, name: string){    
     this.showUserDetails.emit({id,name})
+  }
+
+  deleteUser(id: number){    
+    this.onDeleteUser.emit(id);
   }
 }

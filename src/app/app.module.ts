@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegistrationComponent } from './components/registration/registration.component';
 import { HomeComponent } from './components/home/home.component';
-import { AppRoutingModule } from './app-routing/app-routing.module';
+import { AppRoutingModule } from './routes/app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { UsersComponent } from './components/users/users.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
@@ -22,6 +22,8 @@ import { TABLEComponent } from './components/table/table.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
+import { UsersModule } from './components/users/users.module';
+import { ErrorsRoutingModule } from './routes/errors-routing.module';
 
 
 @NgModule({
@@ -29,13 +31,10 @@ import { MatSortModule } from '@angular/material/sort';
     AppComponent,
     LoginComponent,
     RegistrationComponent,
-    HomeComponent,
-    UsersComponent,
+    HomeComponent,    
     NotFoundComponent,
-    UserComponent,
     AccessDeniedComponent,
-    CardComponent,
-    TABLEComponent    
+    CardComponent    
   ],
   imports: [
     BrowserModule,
@@ -45,10 +44,8 @@ import { MatSortModule } from '@angular/material/sort';
     HttpClientModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
-    MatSliderModule,
-    MatTableModule,
-    MatPaginatorModule,
-    MatSortModule
+    UsersModule,
+    ErrorsRoutingModule 
   ],
   providers: [AuthService, AuthGuard],
   bootstrap: [AppComponent]

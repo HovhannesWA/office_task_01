@@ -7,7 +7,7 @@
     <div class="col_title">age</div>
   </div>
   <div class="table_body">
-    <div class="table_row" *ngFor="let user of users" (click)="selectUser(user.id, user.first_name)">
+    <div class="table_row" *ngFor="let user of users" (click)="selectUser({id:user.id, name:user.first_name})">
       <div class="col_item">
         {{ user.id }}
       </div>
@@ -26,7 +26,12 @@
     </div>
   </div> -->
 
-  
-  <app-table *ngIf="users && users.length" [users]="users" (showUserDetails)="selectUser($event)"></app-table>
+  <app-table
+    *ngIf="users && users.length"
+    [users]="users"
+    (showUserDetails)="selectUser($event)"
+    (onDeleteUser)="deleteUser($event)"
+  >
+  </app-table>
   <router-outlet></router-outlet>
 </div>
