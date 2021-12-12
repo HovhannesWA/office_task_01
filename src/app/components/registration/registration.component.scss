@@ -87,6 +87,8 @@
     }
 
     .back_to_login {
+      display: flex;
+      gap: 5px;
       a {
         color: #2b718b;
         text-decoration: none;
