@@ -8,21 +8,13 @@ import { RegistrationComponent } from './components/registration/registration.co
 import { HomeComponent } from './components/home/home.component';
 import { AppRoutingModule } from './routes/app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
-import { UsersComponent } from './components/users/users.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
-import { UserComponent } from './components/user/user.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthService } from './services/auth.service';
 import { AuthGuard } from './guards/auth-guard.service';
 import { AccessDeniedComponent } from './components/access-denied/access-denied.component';
 import { ToastrModule } from 'ngx-toastr';
 import { CardComponent } from './components/card/card.component';
-import { MatSliderModule } from '@angular/material/slider';
-import { TABLEComponent } from './components/table/table.component';
-import { MatTableModule } from '@angular/material/table';
-import { MatPaginatorModule } from '@angular/material/paginator';
-import { MatSortModule } from '@angular/material/sort';
-import { UsersModule } from './components/users/users.module';
 import { ErrorsRoutingModule } from './routes/errors-routing.module';
 
 
@@ -44,7 +36,7 @@ import { ErrorsRoutingModule } from './routes/errors-routing.module';
     HttpClientModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
-    UsersModule,
+    // UsersModule, //removed for lazy loading
     ErrorsRoutingModule 
   ],
   providers: [AuthService, AuthGuard],

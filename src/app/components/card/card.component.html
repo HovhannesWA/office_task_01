@@ -1,9 +1,14 @@
-<div class="card">
-    <div class="icon">        
-        <img src="./assets/images/{{icon}}.png">
-    </div>
-    <h1>{{ title }}</h1>
-    <div class="content">
-        {{ content }}
-    </div>
+<div
+  class="card"
+  [@mouseOverAnimation]="mouseOverState"
+  (mouseover)="mouseOverState = 'on'"
+  (mouseleave)="mouseOverState = 'off'"
+>
+  <div class="icon">
+    <img src="./assets/images/{{ icon }}.png" />
+  </div>
+  <h1>{{ title }}</h1>
+  <div class="content">
+    {{ content }}
+  </div>
 </div>

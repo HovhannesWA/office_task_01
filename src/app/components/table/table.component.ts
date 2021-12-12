@@ -1,7 +1,16 @@
-import { AfterViewInit, Component, Input, Output, SimpleChange, ViewChild, EventEmitter } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  Input,
+  Output,
+  SimpleChange,
+  ViewChild,
+  EventEmitter,
+} from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTable } from '@angular/material/table';
+import { LoaderService } from 'src/app/services/loader.service';
 import { TABLEDataSource, TABLEItem } from './table-datasource';
 
 @Component({
@@ -16,30 +25,46 @@ export class TABLEComponent implements AfterViewInit {
   dataSource: TABLEDataSource;
 
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
-  displayedColumns = ['id', 'first_name', 'last_name', 'email', 'gender', 'age', 'actions'];
+  displayedColumns = [
+    'id',
+    'first_name',
+    'last_name',
+    'email',
+    'gender',
+    'age',
+    'actions',
+  ];
 
-  constructor() {
-    this.dataSource = new TABLEDataSource();
+  constructor(private loader_service: LoaderService) {
+    this.dataSource = new TABLEDataSource();    
   }
   @Input() users: any = [];
-  @Output() showUserDetails = new EventEmitter<{}>()
-  @Output() onDeleteUser = new EventEmitter<number>()
+  @Output() showUserDetails = new EventEmitter<{}>();
+  @Output() onDeleteUser = new EventEmitter<number>();
 
   ngAfterViewInit(): void {
     this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator;
     this.table.dataSource = this.dataSource;
+    this.table.dataSource = this.users;
   }
 
   ngOnChanges(changes: SimpleChange) {
-    this.dataSource.data = this.users; 
+    setTimeout(() => {      
+      this.dataSource.data = this.users
+      this.dataSource.sort = this.sort;
+      this.dataSource.paginator = this.paginator;
+      this.table.dataSource = this.dataSource;
+      this.loader_service.hideSectionLoader();
+    });
   }
 
-  selectUser(id: number, name: string){    
-    this.showUserDetails.emit({id,name})
+  selectUser(id: number, name: string) {
+    this.showUserDetails.emit({ id, name });
   }
 
-  deleteUser(id: number){    
+  deleteUser(id: number) {
+    this.loader_service.showSectionLoader(document.querySelector('table')!)
     this.onDeleteUser.emit(id);
   }
 }
