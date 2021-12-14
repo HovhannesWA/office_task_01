@@ -30,6 +30,7 @@ export class RegistrationComponent implements OnInit {
   };
 
   hide_component: boolean = false;
+  form_us_touched: boolean = false;
 
   constructor(
     private validation_service: ValidationService,
@@ -42,26 +43,27 @@ export class RegistrationComponent implements OnInit {
   ngOnInit(): void {}
 
   register(event: any) {
-    if (!this.formIsValid()) {
+    this.form_us_touched = true;
+    if (!this.checkFormValidation()) {
       return;
     }
     this.loader_service.showButtonLoader(event.currentTarget);
-    this.login_service.registration(this.registration_data)
-    .then((data) => {
-      console.log(data);
-      this.toastr.success(`Registration completed successfully`);
-      
-      setTimeout(() => this.hide_component = true, 1000)
-      setTimeout(() => this.router.navigate(['/login']),1500)
-    })
-    .catch(err => console.log(err))
-    .finally(() => this.loader_service.hideButtonLoader())
+    this.login_service
+      .registration(this.registration_data)
+      .then((data) => {
+        console.log(data);
+        this.toastr.success(`Registration completed successfully`);
+
+        setTimeout(() => (this.hide_component = true), 1000);
+        setTimeout(() => this.router.navigate(['/login']), 1500);
+      })
+      .catch((err) => console.log(err))
+      .finally(() => this.loader_service.hideButtonLoader());
   }
 
-  formIsValid() {
-    for (let key in this.validation_errors) {
-      this.validation_errors[key] = [];
-    }
+  checkFormValidation() {
+    this.resetErrors();
+
     for (let key in this.registration_data) {
       if (!this.registration_data[key]) {
         this.validation_errors[key] = [];
@@ -73,11 +75,7 @@ export class RegistrationComponent implements OnInit {
       this.validation_errors.email.push('email');
     }
 
-    if (
-      !this.validation_service.sameAs(
-        this.registration_data.comfirm_password,
-        this.registration_data.password
-      )
+    if (!this.validation_service.sameAs( this.registration_data.comfirm_password, this.registration_data.password )
     ) {
       this.validation_errors.comfirm_password.push('sameAs');
     }
@@ -89,5 +87,17 @@ export class RegistrationComponent implements OnInit {
       }
     }
     return is_valid;
+  }
+
+  resetErrors() {
+    for (let key in this.validation_errors) {
+      this.validation_errors[key] = [];
+    }
+  }
+
+  recheckFormValidation() {
+    if(this.form_us_touched){
+      this.checkFormValidation();
+    }
   }
 }
