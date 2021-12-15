@@ -50,14 +50,6 @@
       "email": "johndoe@mail.com",
       "gender": "male",
       "password": "Admin123*",
-      "id": 91
-    },
-    {
-      "first_name": "John",
-      "last_name": "Doe",
-      "email": "johndoe@mail.com",
-      "gender": "male",
-      "password": "Admin123*",
       "id": 92
     },
     {
@@ -651,6 +643,15 @@
       "gender": "male",
       "password": "Admin123*",
       "id": 166
+    },
+    {
+      "first_name": "Hovo",
+      "last_name": "Kesh",
+      "email": "hk@mail.com",
+      "gender": "male",
+      "password": "Admin123*",
+      "comfirm_password": "Admin123*",
+      "id": 167
     }
   ]
 }
