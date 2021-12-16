@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { NotFoundComponent } from '../components/not-found/not-found.component';
-import { AccessDeniedComponent } from '../components/access-denied/access-denied.component';
+import { NotFoundComponent } from './not-found.component';
+import { AccessDeniedComponent } from './../access-denied/access-denied.component';
 
 const routes: Routes = [  
   { path: '403', component: AccessDeniedComponent },

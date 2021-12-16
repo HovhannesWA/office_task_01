@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { delay } from 'rxjs/operators';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { delay, catchError, map } from 'rxjs/operators';
 
 interface IAuth_user {
   id: number,
@@ -20,24 +20,19 @@ export class LoginService {
   constructor(private httpClient: HttpClient) {}
 
   login(email: string, password: string) {
-    return new Promise((resolve, reject) => {
-      this.httpClient.get('http://localhost:3000/users')
-      .pipe(delay(1500))
-      .subscribe({
-        next: data => {        
-          // *******************************************************
-          let logined_user = this.checkUser(data, email, password)
-          // *******************************************************
-          if(logined_user){                     
-            resolve(this.auth_user)
-          }
-          else{
-            reject('dont find')
-          }
-        },
-        error: err => reject(err)
-      })
-    })
+    return this.httpClient.get('http://localhost:3000/rrusers')    
+    .pipe(
+      delay(1000),
+      map(data => {
+        if(this.checkUser(data, email, password)){
+          return this.auth_user;
+        }
+        else{
+          return false;
+        }
+      }),
+      catchError(this.handleError)
+      )        
   }
 
   logOut(){
@@ -65,5 +60,10 @@ export class LoginService {
       sessionStorage.setItem('is_auth', '1');
     }
     return !!logined_user
+  }
+
+  private handleError(err: HttpErrorResponse | any){
+    console.log(err);
+    return err;
   }
 }

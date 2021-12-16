@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/forms';
+import {
+  AbstractControl,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { LoaderService } from 'src/app/services/loader.service';
@@ -29,7 +34,7 @@ export class LoginComponent implements OnInit {
       email: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', Validators.required),
       remeber_me_checkbox: new FormControl(''),
-    });    
+    });
   }
 
   async login(event: { currentTarget: any }) {
@@ -46,16 +51,17 @@ export class LoginComponent implements OnInit {
       this.loader_service.hideButtonLoader();
       return;
     } else {
-      this.login_service.login(email, password)
-        .then((data:any): void => {
-          this.toastr.success(`welcome ${data.first_name} ${data.last_name}` );
-          this.router.navigate(['/home'])
+      this.login_service.login(email, password).subscribe((login_success: any) => {
+        console.log(login_success);
+        if (login_success) {
+          this.toastr.success(`welcome ${login_success.first_name} ${login_success.last_name}`);
+          this.router.navigate(['/home']);
           this.loader_service.hideButtonLoader();
-        })
-        .catch((err) => {
-          console.log(err);
+        }
+        else{
           this.loader_service.hideButtonLoader();
-        });
+        }
+      });      
     }
   }
 

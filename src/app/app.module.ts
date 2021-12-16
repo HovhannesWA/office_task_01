@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegistrationComponent } from './components/registration/registration.component';
 import { HomeComponent } from './components/home/home.component';
-import { AppRoutingModule } from './routes/app-routing.module';
+import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -15,7 +15,7 @@ import { AuthGuard } from './guards/auth-guard.service';
 import { AccessDeniedComponent } from './components/access-denied/access-denied.component';
 import { ToastrModule } from 'ngx-toastr';
 import { CardComponent } from './components/card/card.component';
-import { ErrorsRoutingModule } from './routes/errors-routing.module';
+import { ErrorsRoutingModule } from './components/not-found/errors-routing.module';
 
 
 @NgModule({

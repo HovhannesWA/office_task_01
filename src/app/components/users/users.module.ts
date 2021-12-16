@@ -7,7 +7,7 @@ import { MatTableModule } from '@angular/material/table';
 import { UsersService } from 'src/app/services/users.service';
 import { TABLEComponent } from '../table/table.component';
 import { UserComponent } from '../user/user.component';
-import { UsersRoutingModule } from '../../routes/users-routing.module';
+import { UsersRoutingModule } from './users-routing.module';
 import { UsersComponent } from './users.component';
 
 @NgModule({

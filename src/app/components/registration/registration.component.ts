@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { IRegistration_data } from 'src/app/interfaces/main.interface';
 import { LoaderService } from 'src/app/services/loader.service';
 import { LoginService } from 'src/app/services/login.service';
 import { ValidationService } from 'src/app/services/validation.service';
@@ -11,7 +12,7 @@ import { ValidationService } from 'src/app/services/validation.service';
   styleUrls: ['./registration.component.scss'],
 })
 export class RegistrationComponent implements OnInit {
-  registration_data: any = {
+  registration_data: IRegistration_data = {
     first_name: '',
     last_name: '',
     email: '',
@@ -64,8 +65,8 @@ export class RegistrationComponent implements OnInit {
   checkFormValidation() {
     this.resetErrors();
 
-    for (let key in this.registration_data) {
-      if (!this.registration_data[key]) {
+    for (let [key, value] of Object.entries(this.registration_data)) {      
+      if (!value) {
         this.validation_errors[key] = [];
         this.validation_errors[key].push('required');
       }
