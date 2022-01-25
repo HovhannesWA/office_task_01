@@ -16,6 +16,7 @@ import { AccessDeniedComponent } from './components/access-denied/access-denied.
 import { ToastrModule } from 'ngx-toastr';
 import { CardComponent } from './components/card/card.component';
 import { ErrorsRoutingModule } from './components/not-found/errors-routing.module';
+import { MainLayoutComponent } from './layouts/main-layout/main-layout.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { ErrorsRoutingModule } from './components/not-found/errors-routing.modul
     HomeComponent,    
     NotFoundComponent,
     AccessDeniedComponent,
-    CardComponent    
+    CardComponent,
+    MainLayoutComponent    
   ],
   imports: [
     BrowserModule,

@@ -20,7 +20,7 @@ export class LoginService {
   constructor(private httpClient: HttpClient) {}
 
   login(email: string, password: string) {
-    return this.httpClient.get('http://localhost:3000/rrusers')    
+    return this.httpClient.get('http://localhost:3000/users')    
     .pipe(
       delay(1000),
       map(data => {
