@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { IRegistration_data } from 'src/app/interfaces/main.interface';
 import { LoaderService } from 'src/app/services/loader.service';
-import { LoginService } from 'src/app/services/login.service';
+import { LoginService } from './../login/login.service';
 import { ValidationService } from 'src/app/services/validation.service';
 
 @Component({

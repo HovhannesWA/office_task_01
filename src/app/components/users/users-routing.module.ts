@@ -7,16 +7,10 @@ import { UsersComponent } from './users.component';
 
 const routes: Routes = [
   {
-    path: '', component: MainLayoutComponent,      
-    children: [
-      {
-        path: '', component: UsersComponent,      
-        children: [{ path: ':id/:name', component: UserComponent }],
-        canActivate: [AuthGuard],
-      }
-    ],
-    canActivate: [AuthGuard],
-  },  
+    path: '', component: UsersComponent,      
+    children: [{ path: ':id/:name', component: UserComponent }],
+    canActivate: [AuthGuard]
+  }
 ];
 
 @NgModule({

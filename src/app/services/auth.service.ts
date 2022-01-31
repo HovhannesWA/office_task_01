@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { LoginService } from "./login.service";
+import { LoginService } from "../components/login/login.service";
 
 @Injectable()
 export class AuthService{
