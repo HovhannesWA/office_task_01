@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+<<<<<<< HEAD
 import { filter, range } from 'rxjs';
 import { UsersService } from 'src/app/services/users.service';
+=======
+import { UsersService } from './users.service';
+>>>>>>> 0c4b443831fedbc7ee24263aba68d9959b6e1113
 
 interface IUser{
   id: number

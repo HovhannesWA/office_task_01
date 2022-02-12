@@ -1,0 +1,34 @@
+.main_layout{
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    grid-template-rows: 50px 1fr;
+    grid-template-areas: 
+                "navbar navbar"
+                "sidebar child";
+}
+
+.navbar{
+    grid-area: navbar;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 50px;
+    background-color: aquamarine;
+}
+
+.sidebar{
+    grid-area: sidebar;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    height: 100%;
+    background-color: rgba(56, 83, 158, 0.788);
+}
+
+.child{
+    grid-area: child;
+    width: 100%;
+    height: calc(100vh - 50px); /* 50px is navbar height */
+}
