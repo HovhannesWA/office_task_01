@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { filter, range } from 'rxjs';
 import { UsersService } from 'src/app/services/users.service';
 
 interface IUser{
@@ -24,6 +25,8 @@ export class UsersComponent implements OnInit {
 
   ngOnInit(): void {
     this.getUsers();
+
+    // const o = range(10,100).pipe(filter(n => n > 50)).subscribe(data => console.log(data))
   }
 
   getUsers(){

@@ -35,8 +35,7 @@ import { ErrorsRoutingModule } from './components/not-found/errors-routing.modul
     ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    ToastrModule.forRoot(),
-    // UsersModule, //removed for lazy loading
+    ToastrModule.forRoot(),    
     ErrorsRoutingModule 
   ],
   providers: [AuthService, AuthGuard],

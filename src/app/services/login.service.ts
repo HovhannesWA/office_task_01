@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { delay, catchError, map } from 'rxjs/operators';
+import { of } from 'rxjs';
 
 interface IAuth_user {
   id: number,
@@ -20,7 +21,7 @@ export class LoginService {
   constructor(private httpClient: HttpClient) {}
 
   login(email: string, password: string) {
-    return this.httpClient.get('http://localhost:3000/rrusers')    
+    return this.httpClient.get('http://localhost:3000/users')    
     .pipe(
       delay(1000),
       map(data => {
@@ -64,6 +65,6 @@ export class LoginService {
 
   private handleError(err: HttpErrorResponse | any){
     console.log(err);
-    return err;
+    return of(false);
   }
 }
